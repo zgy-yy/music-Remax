@@ -1,0 +1,30 @@
+.main {
+  width: 100%;
+
+  .song {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+
+    .songMsg {
+      margin-left: 20px;
+      display: flex;
+      flex-direction: column;
+
+      .name {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+      }
+
+      .singer {
+        font-size: x-small;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+      }
+    }
+  }
+}

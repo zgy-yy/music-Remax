@@ -1,0 +1,61 @@
+.main {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  transition: background-image .5s linear;
+
+  .animation {
+    animation-name: fade;
+    animation-duration: 0.8s;
+    animation-timing-function: linear
+  }
+
+  @keyframes fade {
+    0% {
+      opacity: 0
+    }
+    100% {
+      opacity: 1
+    }
+  }
+
+
+  .animation-fade {
+    animation-name: fade;
+    animation-duration: .8s;
+    animation-timing-function: linear
+  }
+  //transition: background-color;
+  .blur {
+    //background-color: rebeccapurple;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(88px);
+  }
+
+
+  .back {
+    //color: #fff;
+    display: flex;
+    align-items: center;
+
+    .name {
+      overflow: hidden;
+
+      .NameScroll {
+        padding-left: 10px;
+        white-space: nowrap;
+        animation: wordsLoop 10s linear infinite;
+      }
+    }
+  }
+}
+
+@keyframes wordsLoop {
+  0% {
+    transform: translateX(20px);
+  }
+
+  100% {
+    transform: translateX(-80%);
+  }
+
+}

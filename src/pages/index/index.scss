@@ -1,0 +1,44 @@
+.page {
+  background: antiquewhite;
+  margin-bottom: 100px;
+
+  .player {
+    z-index: 999;
+    background: #ffffff;
+    transform: translateY(-2px);
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
+
+  .navTop {
+    padding-top: 3px;
+    display: flex;
+    position: fixed;
+
+    .item {
+      margin: 10px 20px;
+      font-size: large;
+      padding-bottom: 5px;
+    }
+
+    .curBar {
+      margin: 10px 20px;
+      font-size: larger;
+      font-weight: bold;
+      padding-bottom: 5px;
+      border-bottom: 9px #36ef61 solid;
+    }
+  }
+
+  .main {
+    margin-left: 20px;
+  }
+}
+
+.tst{
+  border: 1px sienna solid;
+  width: 700px;
+  height: 80px;
+  white-space: nowrap;
+}

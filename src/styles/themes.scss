@@ -1,0 +1,12 @@
+$animation-worldRound: wordsLoop 10s linear infinite;
+
+@keyframes wordsLoop {
+  0% {
+    transform: translateX(20px);
+  }
+
+  100% {
+    transform: translateX(-80%);
+  }
+
+}

@@ -1,0 +1,66 @@
+@import "src/styles/themes";
+
+.mainBody {
+  z-index: 999;
+  width: 95%;
+  margin: 0 auto 6px auto;
+  border-radius: 10px 50px 50px 10px;
+  background-repeat: no-repeat;
+  background-size: 98%;
+  transition: background-image 1s linear;
+  //border: 1px solid gold;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.main {
+  height: 85px;
+  display: grid;
+  border-radius: 10px 50px 50px 10px;
+
+  align-items: center;
+  grid-template-columns: 1fr 6fr 1fr 1fr;
+  gap: 12px;
+
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(198px);
+
+  .coverBox {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    .cover {
+      bottom: 0;
+      border-radius: 6px;
+      position: absolute;
+      width: 126%;
+      height: 126%;
+      z-index: 19;
+    }
+  }
+
+  .infoBox {
+    width: 100%;
+    height: 100%;
+    margin-left: 12px;
+    .swiperItem {
+      height: 50%;
+      box-sizing: border-box;
+      font-size:32px;
+      transform: translateY(50%);
+      white-space: nowrap;
+
+      .info {
+        white-space: nowrap;
+        //transform: translateX(-10%);
+        //overflow: auto;
+        //animation: $animation-worldRound
+      }
+      .scrollInfo{
+        animation: $animation-worldRound;
+        white-space: nowrap;
+      }
+    }
+
+  }
+}
