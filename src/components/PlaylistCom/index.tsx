@@ -19,7 +19,7 @@ const PlayListCom: React.FC<{ playlist: Playlist }> = (props) => {
             toPlaylistDetailPage(playlist.id)
         }}>
             <Image mode={'widthFix'} className={styles.cover}
-                   src={playlist.coverImgUrl ? playlist.coverImgUrl : playlist.picUrl}></Image>
+                   src={playlist.picUrl}></Image>
             <View className={styles.listenNum}>{Math.floor(playlist.playCount / 10000)}万</View>
             <Text className={styles.title}>{playlist.name}</Text>
         </View>

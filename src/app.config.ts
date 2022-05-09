@@ -6,19 +6,19 @@ const config: AppConfig = {
     window: {
         navigationBarTitleText: ' Wechat',
     },
-    tabBar: {
-        color: 'red',
-        selectedColor: 'green',
-        backgroundColor: '#fff',
-        list: [{
-            pagePath: 'pages/index/index',
-            text: '首页'
-        },
-            {
-                pagePath: 'pages/temp/index',
-                text: 'temp'
-            }]
-    }
+    // tabBar: {
+    //     color: 'red',
+    //     selectedColor: 'green',
+    //     backgroundColor: '#fff',
+    //     list: [{
+    //         pagePath: 'pages/index/index',
+    //         text: '首页'
+    //     },
+    //         {
+    //             pagePath: 'pages/temp/index',
+    //             text: 'temp'
+    //         }]
+    // }
 };
 
 export default config;

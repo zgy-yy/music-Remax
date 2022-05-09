@@ -1,5 +1,5 @@
 import {createContext, Dispatch, SetStateAction, useState} from "react";
-import {Playlist} from "@/types/dataTypes";
+import {Playlist, PlaylistDetail} from "@/types/dataTypes";
 
 
 export interface DataType {
@@ -15,8 +15,8 @@ export interface DataType {
             width: number
         }
     }
-    curPlayList: Playlist | undefined,
-    setCurPlayList: Dispatch<SetStateAction<Playlist | undefined>>
+    curPlayList: PlaylistDetail | undefined,
+    setCurPlayList: Dispatch<SetStateAction<PlaylistDetail | undefined>>
     curSongIndex: number,
     setCurSongIndex: Dispatch<SetStateAction<number>>
 }

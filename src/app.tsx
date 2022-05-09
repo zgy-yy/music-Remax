@@ -3,14 +3,14 @@ import './app.css';
 import {DataContext, DataType} from "@/globalData";
 import {getSystemInfo, getMenuButtonBoundingClientRect, getSystemInfoSync, View} from "remax/wechat";
 import {useMemo, useState} from "react";
-import {Playlist} from "@/types/dataTypes";
+import {Playlist, PlaylistDetail} from "@/types/dataTypes";
 import Player from "@/components/Player";
 
 const App: React.FC = props => {
     const systemInfo = getSystemInfoSync()
     const sysCapsule = getMenuButtonBoundingClientRect();
     const StatusBar: number = systemInfo.statusBarHeight
-    const [curPlayList, setCurPlayList] = useState<Playlist | undefined>()
+    const [curPlayList, setCurPlayList] = useState<PlaylistDetail | undefined>()
     const [curSongIndex, setCurSongIndex] = useState<number>(-1)
 
     const data: DataType = {

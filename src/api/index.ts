@@ -13,6 +13,12 @@ export default function http(url: string, method: Method = "GET", data = {}) {
     })
 }
 
+
+//首页发现
+export function getHomePage() {
+    return http('/homepage/block/page')
+}
+
 //热门歌单分类
 export function getPlaylistHotCat() {
     return http('/playlist/hot')
@@ -29,12 +35,17 @@ export function getPlaylist(isQuality = true, order: Order = "hot", cat: Cat = "
 //可获取推荐歌单
 export function getRecommendPlaylist() {
     return http('/personalized').then(res => {
-        console.log('re，每日推荐歌单', res)
         return {
             playlists: res.result
         }
     })
 }
+
+export function getDailyRecommendPlaylist() {
+    return http('/recommend/resource')
+}
+
+
 
 //获取歌单详情
 export function getPlaylistDetail(id: number) {
@@ -46,6 +57,7 @@ export function getPlaylistSongs(playlistId: number, limit ?: number, offset ?: 
     return http(`/playlist/track/all?id=${playlistId}${limit ? `&limit=${limit}` : ''}${offset ? `&offset=${offset}` : ''}`)
 }
 
+//获取歌曲url
 export function getMusicPlay(...songIds: number[]) {
     return http('/song/url?id=' + songIds.toString())
 }

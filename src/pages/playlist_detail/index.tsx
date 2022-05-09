@@ -6,13 +6,11 @@ import CuNav from "@/components/CuNav";
 import {useQuery} from "remax";
 import {useContext, useEffect, useMemo, useRef, useState} from "react";
 import {getPlaylistDetail, getPlaylistSongs} from "@/api";
-import {Playlist, Song} from "@/types/dataTypes";
+import {Playlist, PlaylistDetail, Song} from "@/types/dataTypes";
 import {DataContext} from "@/globalData";
 import SongItem from "@/components/SongItem";
 import Loading from "@/components/Loading";
 import Player from "@/components/Player";
-import RecycleView, {Item} from "remax-recycle-view/lib/src";
-
 
 let songsBuffer = new Array<Song>()
 
@@ -23,27 +21,23 @@ const Index: React.FC = () => {
     const {screenInfo, capsule, curPlayList, setCurPlayList, curSongIndex, setCurSongIndex} = context
     const MAIN_HIGHT = curPlayList ? context.capsule.CustomBar.bottom * 2 + 92 + 'px' : context.capsule.CustomBar.bottom * 2 + 'px'
 
-    const [playlist, setPlaylist] = useState<Playlist>()
+    const [playlist, setPlaylist] = useState<PlaylistDetail>()
     const [songsList, setSongsList] = useState<Song[]>()
-    const [renderSongsList, setRenderSongsList] = useState<Item[]>()
     const [bgImg, setBgImg] = useState<string | undefined>()
     const [isLoading, setIsLoading] = useState(true);
 
 
     usePageEvent("onLoad", () => {
         getPlaylistDetail(playListId).then(res => {
-            const cdListDetail: Playlist = res.playlist
+            const cdListDetail: PlaylistDetail = res.playlist
             setPlaylist(cdListDetail)
             setBgImg(cdListDetail.coverImgUrl)
 
             //根据歌单ID获取歌单里的歌曲
             getPlaylistSongs(cdListDetail.id).then(res => {
-                // console.log('songs', res.songs)
+                //console.log('songs', res)
                 //将所有歌曲缓存
                 songsBuffer = [...res.songs]
-                setRenderSongsList(songsBuffer.map(item => {
-                    return {height: 100, song: item}
-                }))
 
                 setSongsList(songsBuffer.slice(0, 30))
                 //歌单详情默认只有10首歌，更新tracks  存的歌曲列表
@@ -103,12 +97,10 @@ const Index: React.FC = () => {
                     id={'scrollRef'}
                     scrollY={true}
                     enhanced={true}
-                    onScrollToUpper={() => {
-                        setShowTitle(false)
-                    }}
                     onScroll={e => {
                         setScrollHeight(e.detail.scrollHeight)
-                        setShowTitle(true)
+                        const top = e.detail.scrollTop
+                        top>200?setShowTitle(true):setShowTitle(false)
                         // console.log(e.detail.scrollTop)
                         // console.log(e)
                     }}
@@ -116,7 +108,7 @@ const Index: React.FC = () => {
                         getMore()
                     }}
 
-                    upperThreshold={100}
+                    upperThreshold={300}
                     scrollWithAnimation={true}
                     enableBackToTop={true}
                     scrollAnchoring={true}//更新不抖动

@@ -97,11 +97,22 @@ export interface Song {
     version: number
 }
 
-//歌单详细
 export interface Playlist {
+    alg: string
+    canDislike: boolean
+    copywriter: string
+    highQuality: boolean
+    id: number
+    name: string
+    picUrl: string
+    playCount: number
+    trackCount: number
+    trackNumberUpdateTime: number
+    type: number
+}
 
-    picUrl?: string
-    //==================
+//歌单详细
+export interface PlaylistDetail {
     adType: number
     alg: string
     anonimous: boolean
@@ -115,20 +126,28 @@ export interface Playlist {
     createTime: number
     creator: Creator
     description: string
-    highQuality: boolean
+    englishTitle: string//
+    highQuality: boolean//高质量
     id: number
-    name: string
+    name: string//歌单名
     newImported: boolean
+    officialPlaylistType?: null
+    opRecommend: boolean
     ordered: boolean
     playCount: number
     privacy: number
-    recommendInfo?: null
+    remixVideo?: null
     shareCount: number
     specialType: number
     status: number
     subscribedCount: number
-    tag: string
+    subscribers: Creator[]
     tags: string[]
+    titleImage: number
+    titleImageUrl: string
+
+    recommendInfo?: null
+    tag: string
     totalDuration: number
     trackCount: number
     trackNumberUpdateTime: number
@@ -138,16 +157,9 @@ export interface Playlist {
     //
     backgroundCoverId: number
     backgroundCoverUrl: string
-    englishTitle: string
     historySharedUsers?: null
-    officialPlaylistType?: null
-    opRecommend: boolean
-    remixVideo?: null
     sharedUsers?: null
     subscribed?: null
-    subscribers: Creator[]
-    titleImage: number
-    titleImageUrl: string
     trackIds: Array<{
         alg: string,
         at: number,

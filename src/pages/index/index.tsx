@@ -2,7 +2,7 @@ import * as React from 'react';
 import {View, Text, Image, ScrollView, createSelectorQuery} from 'remax/wechat';
 import styles from './index.scss';
 import {useContext, useEffect, useState} from "react";
-import {getPlaylist, getRecommendPlaylist} from "@/api";
+import {getDailyRecommendPlaylist, getHomePage, getPlaylist, getRecommendPlaylist} from "@/api";
 import {DataContext} from "@/globalData";
 import CuNav from '@/components/CuNav';
 import PlayListRecom from "@/components/PlayListRecom";
@@ -34,13 +34,15 @@ const Index: React.FC = () => {
                 </View>
             </CuNav>
             <View className={styles.main}>
-                <PlayListRecom name={'精选歌单'} resources={getPlaylist}></PlayListRecom>
+                {/*<PlayListRecom name={'e'} resources={getPlaylist}/>*/}
                 <PlayListRecom name={'推荐歌单'} resources={getRecommendPlaylist}></PlayListRecom>
             </View>
             {
-                curPlayList ? (<View className={styles.player}>
+                <View className={styles.player}
+                      // style={curPlayList ? {display: "inherit"} : {display: 'none'}}
+                >
                     <Player></Player>
-                </View>) : ""
+                </View>
             }
         </View>
     );
